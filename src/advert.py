@@ -1,10 +1,12 @@
 from src.JSONAdvert import JSONAdvert
+from src.mixins.colorize_mixin import ColorizeMixin
 
 
-class Advert(JSONAdvert):
+class Advert(ColorizeMixin, JSONAdvert):
     def __init__(self, *args):
         self._price = 0
 
+        # инициализация через Mapping или через (title, price)
         if len(args) == 1:
             super().__init__(args[0])
         else:

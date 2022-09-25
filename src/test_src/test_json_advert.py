@@ -1,5 +1,3 @@
-from pytest import fixture
-
 from src.JSONAdvert import JSONAdvert
 
 
@@ -22,5 +20,7 @@ def test_lesson():
     assert len(dict_obj['location'].__dict__.keys()) == 2
     assert dict_obj['title'] == 'python'
     assert dict_obj['price'] == 0
-    assert dict_obj['location'].__dict__['address'] == 'город Москва, Лесная, 7'
-    assert dict_obj['location'].__dict__['metro_stations'] == ['Белорусская']
+    lesson_address = dict_obj['location'].__dict__['address']
+    lesson_metro_stations = dict_obj['location'].__dict__['metro_stations']
+    assert lesson_address == 'город Москва, Лесная, 7'
+    assert lesson_metro_stations == ['Белорусская']
